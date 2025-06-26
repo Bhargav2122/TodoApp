@@ -1,0 +1,24 @@
+
+require('dotenv').config()
+const express = require('express')
+const app  = express();
+const cors = require('cors');
+const userRoute = require('./routes/userRoute')
+const { default: mongoose } = require('mongoose');
+const port = 1621
+
+
+app.use(express.json())
+app.use(cors())
+
+app.use('/api/auth', userRoute)
+
+mongoose.connect(process.env.MONGO_URI)
+.then( () => {
+    console.log('connected')
+}).catch(err => console.log(err))
+
+
+app.listen(port, () => {
+    console.log(`server listening on port ${port}`);  
+})
