@@ -4,6 +4,7 @@ const express = require('express')
 const app  = express();
 const cors = require('cors');
 const userRoute = require('./routes/userRoute')
+const todoRoutes = require('./routes/todoRoute')
 const { default: mongoose } = require('mongoose');
 const port = 1621
 
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/auth', userRoute)
+app.use('/api/todos', todoRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then( () => {
