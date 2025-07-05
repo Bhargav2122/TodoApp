@@ -1,25 +1,35 @@
-import { useRecoilValue } from 'recoil'
-import './App.css'
-import { userAtom } from '../src/atoms/userAtom'
-import {  BrowserRouter , Routes, Route } from 'react-router-dom'
-import api from './axios/axois'
+import React from 'react'
+import {useRecoilValue, useRecoilState } from 'recoil'
+import {BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import Register from './pages/Register'
+import Login from './pages/Login'
+import Profile from './pages/Profile'
+import { Todos } from './pages/Todos'
+import { userAtom } from './atoms/userAtom'
 
-function App() {
-  const user = useRecoilValue(userAtom)
- 
+
+const App = () => {
+
+   const user = useRecoilValue(userAtom)
+
   return (
     <>
-      <BrowserRouter>
-         <Routes>
-          {user ? (
-             <Route path='/' element={<TodoPage />} />
-          ) : (
-             <Route path = '/' element={<Register />} />
-          )}
+     <BrowserRouter>
+       <Navbar />
+       <Routes>
+        <Route path='/' element = {<Navigate to='/register'/> } />
+        <Route path='/register' element={ <Register />} />
+        <Route path='/login' element={ <Login />} />
 
-         </Routes>
-      </BrowserRouter>
+        {user && (
+          <>
+            <Route path='/todos' element={<Todos />} />
+            <Route path='/profile' element={<Profile />} />
+          </>
+        )}
+       </Routes>
+     </BrowserRouter>
     </>
   )
 }
