@@ -11,7 +11,7 @@ const port = process.env.PORT || 1621
 
 app.use(express.json())
 app.use(cors({
-    origin:'todo-7hv2w87it-bala-bhargavs-projects.vercel.app',
+    origin:'https://todo-app-rust-delta-10.vercel.app',
     credentials:true
 }))
 
