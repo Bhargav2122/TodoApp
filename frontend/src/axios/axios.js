@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:1621/api',
+  baseURL: 'https://todoapp-backend-palq.onrender.com/api',
 });
 
 api.interceptors.request.use((req) => {
