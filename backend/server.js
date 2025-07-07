@@ -10,7 +10,10 @@ const port = process.env.PORT || 1621
 
 
 app.use(express.json())
-app.use(cors())
+app.use(cors(({
+    origin:'todo-7hv2w87it-bala-bhargavs-projects.vercel.app',
+    credentials:true
+}))
 
 app.use('/api/auth', userRoute)
 app.use('/api/todos', todoRoutes)
