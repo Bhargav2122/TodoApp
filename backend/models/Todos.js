@@ -5,6 +5,10 @@ const todoSchema = mongoose.Schema(
         text: String,
         user: { 
             type: mongoose.Schema.Types.ObjectId, ref: 'User'
+        },
+        completed: {
+            type:Boolean,
+            default: false
         }
     }
 );

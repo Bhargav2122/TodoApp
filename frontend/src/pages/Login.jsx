@@ -25,8 +25,8 @@ const Login = () => {
 
   return (
     <>
-      <div className='bg-[#fff]  h-[91vh] flex justify-center items-center'>
-        <form onSubmit={handleSubmit} className='bg-[#000] p-10 rounded-xl grid grid-rows-4 gap-6 text-center '>
+      <div className='bg-[#fff] h-[91vh] flex justify-center items-center px-4 sm:px-0'>
+        <form onSubmit={handleSubmit} className='bg-[#000] p-6 sm:p-10 rounded-xl grid grid-rows-4 gap-6 text-center w-full max-w-md sm:w-auto'>
           <Heading label='Login to your account' />
            <Input email={form.email} password={form.password} onMailChange={(e) => setForm({...form, email:e.target.value})} onPassChange={(e) => setForm({...form, password:e.target.value})}  />
           <Button btntext='Login' />

@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import { Todos } from './pages/Todos'
 import { userAtom } from './atoms/userAtom'
+import ProtectedRoutes from './pages/ProtectedRoutes'
 import './App.css'
 
 
@@ -26,7 +27,9 @@ const App = () => {
 
         {user && (
           <>
-            <Route path='/todos' element={<Todos />} />
+            <Route path='/todos' element={ <ProtectedRoutes>
+              <Todos />
+            </ProtectedRoutes>} />
           </>
         )}
        </Routes>

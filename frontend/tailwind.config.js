@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        quick: ['QuickSand', 'sans-serif']
+        quick: ['QuickSand', 'sans-serif'],
+        head: ['Bitcount Grid Double'],
       }
     },
   },
