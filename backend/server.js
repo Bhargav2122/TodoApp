@@ -6,7 +6,7 @@ const cors = require('cors');
 const userRoute = require('./routes/userRoute')
 const todoRoutes = require('./routes/todoRoute')
 const { default: mongoose } = require('mongoose');
-const port = 1621
+const port = process.env.PORT || 1621
 
 
 app.use(express.json())
